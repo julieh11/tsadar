@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Default options &mdash; TSADAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/github_style.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FAQ" href="FAQ.html" />
+    <link rel="prev" title="Configuring the inputs" href="inputs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3c4142" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best_practice.html">Best Practices for Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Configuring the inputs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Default options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-options">Other options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotting">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimizer">Optimizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nn">NN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dist-fit">Dist_fit</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math.html">Implementation of Thomson Scattering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_main.html">API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3c4142" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TSADAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Default options</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/defaults.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="inputs.html" class="btn btn-neutral float-left" title="Configuring the inputs" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="FAQ.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="default-options">
+<h1>Default options<a class="headerlink" href="#default-options" title="Link to this heading"></a></h1>
+<p>This code utilizes 2 input deck called <cite>inputs.yaml</cite> and <cite>defaults.yaml</cite>. The primary input deck <cite>inputs.yaml</cite> contains
+all the commonly altered options, things like which parameters are going to be fit, the initial values, the shotnumber
+and the lineouts you want to fit. The secondary input deck <cite>defaults.yaml</cite> contains additional options that rarely need
+to be altered and default values for all options. This page details the additional options in <cite>defaults.yaml</cite> that are
+not found in <cite>inputs.yaml</cite>.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">blur</span></code> is an additional smoothing for ARTS <em>currently depreciated</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">specCurvature</span></code> corrects angle dependence of the central wavleength in ARTS <em>currently depreciated</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fitprops</span></code> <em>currently depreciated, removal likely</em></p></li>
+</ul>
+</section>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">data:</span></code> section contains the specifics on which shot and what region of the shot should be analyzed.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">shotDay</span></code> changes the default search path for analysis on a shot day <em>removal likely</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">launch_data_visualizer</span></code> is a boolean determining if plots will be produced of the entire data set with the fitting regions highlighted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_rng</span></code> specifies the regions of the data to include in calculation of the fit metric (i.e. included in the fit)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">blue_min</span></code> starting wavelength for the analysis of the blue shifted EPW in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blue_max</span></code> ending wavelength for the analysis of the blue shifted EPW in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">red_min</span></code> starting wavelength for the analysis of the red shifted EPW in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">red_max</span></code> ending wavelength for the analysis of the red shifted EPW in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iaw_min</span></code> starting wavelength for the analysis of the IAW in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iaw_max</span></code> ending wavelength for the analysis of the IAW in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iaw_cf_min</span></code> starting wavelength for a central feature in the IAW that is to be excluded from analysis in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iaw_cf_max</span></code> ending wavelength for a central feature in the IAW that is to be excluded from analysis in nm</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bgscaleE</span></code> multiplier on the background applied to EPW analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bgscaleI</span></code> multiplier on the background applied to IAW analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bgshotmult</span></code> multiplier on all background from a separate data file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ion_loss_scale</span></code> multiplier on the IAW component of the fit metric, allows for balancing of data with differing signal levels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ele_t0</span></code> shifts the time denoted as 0 for time resolved EPW data, given in the same units as the lineouts (ps or pixel)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ion_t0_shift</span></code> shifts the time denoted as 0 for time resolved IAW data relative to the EPWs zero, given in the same units as the lineouts (ps or pixel)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ele_lam_shift</span></code> shifts the central frequency given by <cite>lam</cite> in the EPW spectrum, given in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">probe_beam</span></code> identifies the beam on OMEGA used as the probe, automatically adjusts the scattering angle and finite aperture calculations. Currently availible options are P9, B15, B23, B26, B35, B42, B46, and B58.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dpixel</span></code> determined the width of a lineout in pixels, the width of a lineout is 2*`dpixel` + 1 centered about the values in <cite>lineouts</cite></p></li>
+</ul>
+</section>
+<section id="other-options">
+<h2>Other options<a class="headerlink" href="#other-options" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">other:</span></code> section includes options specifying the types of data that are being fit and other options
+on how to perform the fit.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expandedions</span></code> is a boolean determining if a non-linear wavelength grid will be used allowing IAW and EPW spectra to be resolved simultaneously <em>currently depreciated</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PhysParams</span></code> is a dictionary that is assigned within the code and stores detector information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iawoff</span></code> is a boolean determining if the iaw will be suppressed in plotting of the EPW feature</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iawfilter</span></code> is an alternative to iawoff that suppresses the IAW with a notch filter. The list has 4 elements, boolean for on/off, OD of the filter, spectral width of the filter in nm, and central wavelength of the filter in nm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CCDsize</span></code> size of the CCD in pixels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flatbg</span></code> flat (applied to all pixes) value added to the background</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gain</span></code> CCD counts per photo-electron, the standard OMEGA ROSS has a gain of 144. Gain must be accurate for appropriate use of Poisson statistics</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">points_per_pixel</span></code> number of wavelength points computed in the spectrum per pixel in the data being analyzed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ang_res_unit</span></code> is the number of pixels in an angular resolution unit for ARTS</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lam_res_unit</span></code> is the number of pixels in an specular resolution unit for ARTS</p></li>
+</ul>
+</section>
+<section id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n_sigmas</span></code> is the number of standard deviations to plot the uncertainty region over</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rolling_std_width</span></code> number of lineouts used to calculate the standard deviation for the moving window error region</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_cbar_u</span></code> upper limit for the colorbar in plotting the data and fit, can be given as a number of counts or as <cite>data</cite> to automatically use the maximum of the data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_cbar_l</span></code> lower limit for the colorbar in plotting the data and fit, can be given as a number of counts or as <cite>data</cite> to automatically use the minimum of the data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ion_window_start</span></code> determines the spectral range of the IAW fit plots, this gives the lower bound in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ion_window_end</span></code> determines the spectral range of the IAW fit plots, this gives the upper bound in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ele_window_start</span></code> determines the spectral range of the EPW fit plots, this gives the lower bound in nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ele_window_end</span></code> determines the spectral range of the EPW fit plots, this gives the upper bound in nm</p></li>
+</ul>
+</section>
+<section id="optimizer">
+<h2>Optimizer<a class="headerlink" href="#optimizer" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> gradient descent algorithm employed by the minimizer, current options are <cite>adam</cite> and <cite>l-bfgs-b</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hessian</span></code> boolean, determines if the hessian will be supplied to the minimizer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_norm</span></code> boolean, normalizes data to a maximum value of 1 to improve minimizer behavior, true values are still used for error analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x_norm</span></code> boolean, normalizes data to a maximum value of 1 as an input to the neural network <em>depreciated</em></p></li>
+</ul>
+</section>
+<section id="nn">
+<h2>NN<a class="headerlink" href="#nn" title="Link to this heading"></a></h2>
+<p>Options for the NN version of the code which is currently depreciated.</p>
+</section>
+<section id="dist-fit">
+<h2>Dist_fit<a class="headerlink" href="#dist-fit" title="Link to this heading"></a></h2>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">window</span></code> options the smoothing function applied to the distribution function while fitting ARTS</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code> length of the smoothing kernel relative the the length of the velocity vector</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> type of smoothing function used, can be <cite>hamming</cite>, <cite>hann</cite>, or <cite>bartlett</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="inputs.html" class="btn btn-neutral float-left" title="Configuring the inputs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="FAQ.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Avi Milder, Archis Joglekar.
+      <span class="lastupdated">Last updated on Jul 16, 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+data:
+  background:
+    slice: 900
+    type: fit
+  fit_rng:
+    blue_max: 490
+    blue_min: 465
+    iaw_cf_max: 526.59
+    iaw_cf_min: 526.35
+    iaw_max: 526.9
+    iaw_min: 526.1
+    red_max: 617
+    red_min: 570
+  lineouts:
+    end: 500
+    skip: 20
+    start: 400
+    type: pixel
+  shotnum: 97357
+mlflow:
+  experiment: inverse-thomson-scattering
+  run: Imaging combined focus on EPW (400-500)
+other:
+  PhysParams:
+    widIRF:
+      ang_FWHM_ele: 1.0
+      spect_FWHM_ele: 0.9
+      spect_stddev_ele: 0.1
+      spect_stddev_ion: 0.015
+  calc_sigmas: false
+  extraoptions:
+    fit_EPWb: true
+    fit_EPWr: true
+    fit_IAW: true
+    load_ele_spec: true
+    load_ion_spec: true
+    spectype: true
+  refit: false
+  refit_thresh: np.squeeze(0.2)
+parameters:
+  general:
+    Te_gradient:
+      active: false
+      lb: 0.0
+      num_grad_points: 1
+      ub: 10.0
+      val: 0.0
+    Va:
+      active: true
+      angle: 0.0
+      lb: -10.0
+      ub: 10.0
+      val: 3.0
+    amp1:
+      active: true
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    amp2:
+      active: true
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    amp3:
+      active: true
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    lam:
+      active: false
+      lb: 526.0
+      ub: 527.0
+      val: 526.6
+    ne_gradient:
+      active: false
+      lb: 0.0
+      num_grad_points: 1
+      ub: 15.0
+      val: 0.0
+    type:
+      active: false
+      general: null
+    ud:
+      active: true
+      angle: 0.0
+      lb: -10.0
+      ub: 10.0
+      val: -5.0
+  species1:
+    Te:
+      active: true
+      lb: 0.05
+      ub: 1.2
+      val: 0.4
+    fe:
+      active: false
+      dim: 1
+      fe_decrease_strict: false
+      lb: -100.0
+      length: 3999
+      m_asym: 1.0
+      m_theta: 0.0
+      symmetric: false
+      temp_asym: 1.0
+      type:
+        DLM: null
+      ub: -0.5
+      v_res: 0.05
+      val: []
+    m:
+      active: true
+      intens: 2.0
+      lb: 2.0
+      matte: false
+      ub: 5.0
+      val: 2.0
+    ne:
+      active: true
+      lb: 0.01
+      ub: 0.75
+      val: 0.25
+    type:
+      active: false
+      electron: null
+  species2:
+    A:
+      active: false
+      val: 14.0
+    Ti:
+      active: true
+      lb: 0.01
+      same: false
+      ub: 1.0
+      val: 0.35
+    Z:
+      active: true
+      lb: 1.0
+      ub: 7.0
+      val: 5.0
+    fract:
+      active: false
+      val: 1.0
+    type:
+      active: false
+      ion: null

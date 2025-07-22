@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/pythonProject/inverse-thomson-scattering/mlruns/305449103974076297/08d0a2babf044a149f54840f37daae15/artifacts
+end_time: 1724173473660
+entry_point_name: ''
+experiment_id: '305449103974076297'
+lifecycle_stage: active
+run_id: 08d0a2babf044a149f54840f37daae15
+run_name: IAW fit turbo_r log starting at vmin = np.amin(data) 101676
+run_uuid: 08d0a2babf044a149f54840f37daae15
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1724173457791
+status: 3
+tags: []
+user_id: jher

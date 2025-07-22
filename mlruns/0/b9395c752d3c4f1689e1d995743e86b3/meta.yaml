@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/b9395c752d3c4f1689e1d995743e86b3/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b9395c752d3c4f1689e1d995743e86b3
+run_name: intelligent-seal-938
+run_uuid: b9395c752d3c4f1689e1d995743e86b3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752775775232
+status: 1
+tags: []
+user_id: jher

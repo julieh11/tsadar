@@ -1,0 +1,897 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Getting Started Tutorial &#8212; TSADAR  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=81ef5681" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/github_style.css?v=1093691d" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'getting_started';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Example Gallery" href="examples.html" />
+    <link rel="prev" title="TSADAR Documentation" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Nov 01, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/lafoto.JPG" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="_static/lafoto.JPG" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">TSADAR</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Geeting Started Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples.html">
+    Example Gallery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="inputs.html">
+    Inputs
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="defaults.html">
+    Defaults
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="forward_pass.html">
+    Forward
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="TS_fundamentals.html">
+    Fundamentals of Thomson Scattering
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="FAQ.html">
+    FAQ
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math.html">
+    Implementation of Thomson Scattering
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api_main.html">
+    API Documentation
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ergodicio/inverse-thomson-scattering.git" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Geeting Started Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples.html">
+    Example Gallery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="inputs.html">
+    Inputs
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="defaults.html">
+    Defaults
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="forward_pass.html">
+    Forward
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="TS_fundamentals.html">
+    Fundamentals of Thomson Scattering
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="FAQ.html">
+    FAQ
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math.html">
+    Implementation of Thomson Scattering
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api_main.html">
+    API Documentation
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ergodicio/inverse-thomson-scattering.git" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Geeting Started Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Example Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defaults.html">Defaults</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forward_pass.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TS_fundamentals.html">Fundamentals of Thomson Scattering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math.html">Implementation of Thomson Scattering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_main.html">API Documentation</a></li>
+</ul>
+</div>
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Getting...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="getting-started-tutorial">
+<span id="getting-started"></span><h1>Getting Started Tutorial<a class="headerlink" href="#getting-started-tutorial" title="Link to this heading">#</a></h1>
+<p>This page should provides detailed instruction on instalation and basic usage of the TSADAR code.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Clone the github <a class="reference external" href="https://github.com/ergodicio/inverse-thomson-scattering">repo</a> to the local or remote machine where you will be running analysis.</p></li>
+<li><p>Install using the commands bellow, or following your prefered method.</p></li>
+</ol>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Conda GPU (recomended)</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>env_gpu.yml
+conda<span class="w"> </span>activate<span class="w"> </span>tsadar-gpu
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Conda CPU</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>env.yml
+conda<span class="w"> </span>activate<span class="w"> </span>tsadar-cpu
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version<span class="w">                </span><span class="c1"># hopefully this says &gt;= 3.9</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv<span class="w">             </span><span class="c1"># make an environment in this folder here</span>
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">        </span><span class="c1"># activate the new environment</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="c1"># install dependencies</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="importing-raw-data">
+<h2>Importing raw data<a class="headerlink" href="#importing-raw-data" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="_images/data_to_env.png"><img alt="_images/data_to_env.png" class="align-right" src="_images/data_to_env.png" style="width: 413px; height: 163px;" /></a>
+<hr class="docutils" />
+<p>Once you have created a virtual environment, you should add your raw data, which should be a <span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">.hdf</span> file
+into the provided data folder located in your instalation.</p>
+</section>
+<section id="input-decks">
+<h2>Input decks<a class="headerlink" href="#input-decks" title="Link to this heading">#</a></h2>
+<p>The code uses two input decks, which  are located in <strong>inverse-thomson-scattering/configs/1d</strong>. The primary input deck <cite>inputs.yaml</cite>
+contains the commonly altered parameters. The secondary input deck <cite>defaults.yaml</cite> contains additional options that tend to remain static.
+Please note, any parameters in <cite>inputs.yaml</cite> will override the secondary input deck when values conflict. More information on the specifics
+of each deck can be found by clicking the cards bellow.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Inputs.yaml</div>
+<p class="sd-card-text">Primary input deck</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="inputs.html#inputs-deck"><span class="std std-ref">Inputs Deck</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Defaults.yaml</div>
+<p class="sd-card-text">Secondary input deck</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="defaults.html#configuring-the-default"><span class="std std-ref">Default options</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="experiment-information">
+<h2>Experiment information<a class="headerlink" href="#experiment-information" title="Link to this heading">#</a></h2>
+<p>Indicate the shotnumber of the experiment in the <a class="reference internal" href="inputs.html#inputs-deck"><span class="std std-ref">Input.yaml</span></a> deck.
+The code will identify the type of Thomson data (temporal or spatial) for OMEGA experiments, based off the data file.
+For fitting data files from other sources, please contact the authors.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Inputs.yaml</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">data</span><span class="p">:</span>
+<span class="hll"><span class="w">    </span><span class="nt">shotnum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">101675</span>
+</span><span class="w">    </span><span class="nt">lineouts</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">pixel</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="fitting-time-resolved-epw">
+<h2>Fitting time resolved EPW<a class="headerlink" href="#fitting-time-resolved-epw" title="Link to this heading">#</a></h2>
+<p>Load the electron spectra, and activate the EPW fit by setting the corresponding booleans to <span class="sd-sphinx-override sd-badge sd-outline-success sd-text-success">True</span>.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Inputs.yalm</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">other</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">extraoptions</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">spectype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">load_ion_spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="hll"><span class="w">        </span><span class="nt">load_ele_spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+</span><span class="w">        </span><span class="nt">fit_IAW</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="hll"><span class="w">        </span><span class="nt">fit_EPWb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">fit_EPWr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+</span></pre></div>
+</div>
+</div>
+</section>
+<section id="fitting-time-resolved-iaw">
+<h2>Fitting time-resolved IAW<a class="headerlink" href="#fitting-time-resolved-iaw" title="Link to this heading">#</a></h2>
+<p>Load the ion spectra, and activate the IAW fit by setting the corresponding booleans to <span class="sd-sphinx-override sd-badge sd-outline-success sd-text-success">True</span>.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Inputs.yalm</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">other</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">extraoptions</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">spectype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="hll"><span class="w">        </span><span class="nt">load_ion_spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+</span><span class="w">        </span><span class="nt">load_ele_spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="hll"><span class="w">        </span><span class="nt">fit_IAW</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+</span><span class="w">        </span><span class="nt">fit_EPWb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">        </span><span class="nt">fit_EPWr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="background-and-lineout-selection">
+<h2>Background and lineout selection<a class="headerlink" href="#background-and-lineout-selection" title="Link to this heading">#</a></h2>
+<p>There are multiple options for background algorithms and types of fitting. The following tend to be the best options for various data types. All of these options are specified using the input deck.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Time-resolved Data</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">background</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">pixel</span>
+<span class="w">    </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+Spatially-resolved Data</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">background</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">fit</span>
+<span class="w">    </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900 &lt;or backrgound slice for IAW&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+Lineouts of Angular</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">background</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">fit</span>
+<span class="w">    </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;background shot number&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+Full Angular</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lienouts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">range</span>
+<span class="w">    </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span>
+<span class="w">    </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+<span class="w">    </span><span class="nt">skip</span><span class="p">:</span><span class="w"> </span><span class="c1">#</span>
+<span class="nt">background</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">fit</span>
+<span class="w w-Error"> </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;background shot number&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fitting-a-new-data-set">
+<h2>Fitting a new data set<a class="headerlink" href="#fitting-a-new-data-set" title="Link to this heading">#</a></h2>
+<p>For fitting a new data set, it is recomended to start by fitting a small region of the data using a small number of lineouts.
+The fit will start at <strong>lineout:start</strong> and will end at <strong>lineout:end</strong>. Lineouts will be fit every <strong>lineout:skip</strong> of the unit type defined.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Inputs.yaml</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">shotnum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1234567</span>
+<span class="hll"><span class="w">    </span><span class="nt">lineouts</span><span class="p">:</span>
+</span><span class="w">        </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">pixel</span>
+<span class="hll"><span class="w">        </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">skip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+</span><span class="w">    </span><span class="nt">background</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">pixel</span>
+<span class="w">        </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="adjusting-parameters">
+<h2>Adjusting parameters<a class="headerlink" href="#adjusting-parameters" title="Link to this heading">#</a></h2>
+<p>Set up the input decks to best fit your data. <strong>val</strong> sets the initial value for the first iteration, or the static value of unfit parameters.
+These values are bounded by <strong>lb</strong> and <strong>ub</strong> indicating the lower and upper bound respectively.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Inputs.yaml</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">species1</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">electron</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">        </span><span class="nt">Te</span><span class="p">:</span>
+<span class="hll"><span class="w">            </span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.6</span>
+</span><span class="w">            </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="hll"><span class="w">            </span><span class="nt">lb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.01</span>
+</span><span class="hll"><span class="w">            </span><span class="nt">ub</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.25</span>
+</span></pre></div>
+</div>
+</div>
+<p>The secondary imput deck, contains the minimum and maximum values for the blue and red shifts.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Defaults.yaml</span><a class="headerlink" href="#id6" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">shotnum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1234567</span>
+<span class="w">    </span><span class="nt">shotDay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">launch_data_visualizer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">    </span><span class="nt">fit_rng</span><span class="p">:</span>
+<span class="hll"><span class="w">        </span><span class="nt">blue_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">460</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">blue_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">510</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">red_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">545</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">red_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span>
+</span></pre></div>
+</div>
+</div>
+</section>
+<section id="run-modes">
+<h2>Run modes<a class="headerlink" href="#run-modes" title="Link to this heading">#</a></h2>
+<p>Code outputs are packaged using MLFlow, each run should be individualy named in the input deck. The experiment field is a folder and can be used to group runs.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Inputs.yaml</span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">mlflow</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">experiment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">folder1</span>
+<span class="hll"><span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name of the run</span>
+</span></pre></div>
+</div>
+</div>
+<p>Once you have adjusted the parameters and saved the changes made, you will want to implement the run command.
+There are two run “modes”.</p>
+<p><strong>Fit mode</strong> perfoms the fitting procedure producing plasma conditions from the data.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>run_tsadar.py<span class="w"> </span>--cfg<span class="w"> </span>&lt;path&gt;/&lt;to&gt;/&lt;inputs&gt;/&lt;folder&gt;<span class="w"> </span>--mode<span class="w"> </span>fit
+</pre></div>
+</div>
+<p><strong>Forward mode</strong> performs a forward pass and gives you the spectra given some input parameters. Additionally, it can produce spectra for a series of plasma conditions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>run_tsadar.py<span class="w"> </span>--cfg<span class="w"> </span>&lt;path&gt;/&lt;to&gt;/&lt;inputs&gt;/&lt;folder&gt;<span class="w"> </span>--mode<span class="w"> </span>forward
+</pre></div>
+</div>
+</section>
+<section id="output-visualization">
+<h2>Output visualization<a class="headerlink" href="#output-visualization" title="Link to this heading">#</a></h2>
+<p>To visualize the outputs run the following commnand, and follow the resultant link.
+The resulting plots can be found in the <strong>Artifacts</strong> unedr the folder <strong>plots</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mlflow<span class="w"> </span>ui
+</pre></div>
+</div>
+<img alt="_images/mlflow_home.png" src="_images/mlflow_home.png" />
+</section>
+<section id="fit-and-data-plots">
+<h2>Fit and data plots<a class="headerlink" href="#fit-and-data-plots" title="Link to this heading">#</a></h2>
+<p>Fit and data plots show a side by side of the fit and data, which can be used to evaluate the quality of the fit.</p>
+<a class="reference internal image-reference" href="_images/fit_and_data_ele.png"><img alt="Fit and data EPW" src="_images/fit_and_data_ele.png" style="width: 416.15px; height: 171.5px;" /></a>
+<a class="reference internal image-reference" href="_images/fit_and_data_iaw.png"><img alt="Fit and data IAW" src="_images/fit_and_data_iaw.png" style="width: 416.15px; height: 171.14999999999998px;" /></a>
+</section>
+<section id="fit-ranges-plots">
+<h2>Fit ranges plots<a class="headerlink" href="#fit-ranges-plots" title="Link to this heading">#</a></h2>
+<p>Fit and ranges Plots use lines to indicate the region where data is being analyzed.</p>
+<a class="reference internal image-reference" href="_images/electron_fit_ranges.png"><img alt="Electron Fit Ranges" src="_images/electron_fit_ranges.png" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="_images/ion_fit_ranges.png"><img alt="Ion Fit Ranges" src="_images/ion_fit_ranges.png" style="width: 45%;" /></a>
+</section>
+<section id="best-and-worst-plots">
+<h2>Best and worst plots<a class="headerlink" href="#best-and-worst-plots" title="Link to this heading">#</a></h2>
+<p>Best and wost plots display the lineouts where the free parameters for the analysis best and wort match those of the data.
+These plots can be used ot determine how to alter input conditions. The second image</p>
+<p><strong>Best plots</strong></p>
+<a class="reference internal image-reference" href="_images/epw_best.png"><img alt="EPW Best" src="_images/epw_best.png" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="_images/iaw_best.png"><img alt="IAW Best" src="_images/iaw_best.png" style="width: 45%;" /></a>
+<p><strong>Worst plots</strong></p>
+<a class="reference internal image-reference" href="_images/epw_worst.png"><img alt="EPW Worst" src="_images/epw_worst.png" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="_images/iaw_worst.png"><img alt="IAW Worst" src="_images/iaw_worst.png" style="width: 45%;" /></a>
+</section>
+<section id="learned-parameters">
+<h2>Learned parameters<a class="headerlink" href="#learned-parameters" title="Link to this heading">#</a></h2>
+<p>Learned parameters contain the fitted parameters for every lineout. These can be downloaded to further analyse individual lineouts.</p>
+<img alt="_images/lparam_epw.png" src="_images/lparam_epw.png" />
+</section>
+<section id="learned-parameters-plots">
+<h2>Learned parameters plots<a class="headerlink" href="#learned-parameters-plots" title="Link to this heading">#</a></h2>
+<p>The variation of individual parameters throughout the linouts is shown in their respective learned plots.</p>
+<a class="reference internal image-reference" href="_images/learned_m.png"><img alt="_images/learned_m.png" src="_images/learned_m.png" style="width: 382.14px; height: 375.21px;" /></a>
+<a class="reference internal image-reference" href="_images/learned_Ti.png"><img alt="_images/learned_Ti.png" src="_images/learned_Ti.png" style="width: 391.05px; height: 372.24px;" /></a>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">TSADAR Documentation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="examples.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Example Gallery</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, Avi Milder, Archis Joglekar.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

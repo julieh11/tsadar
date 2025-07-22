@@ -1,0 +1,7 @@
+Fitting time resolved EPW
+====================================
+
+This is example will walk you through the key steps for fitting time-resolved data for EPW.
+
+Load the electron spectra, and activate the EPW fit by setting the corresponding booleans to :bdg-success-line:`True`.
+Use the mflow ui to visualize the outputs.

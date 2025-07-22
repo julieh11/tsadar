@@ -1,0 +1,147 @@
+data:
+  background:
+    slice: 330
+    type: fit
+  fit_rng:
+    blue_max: 505
+    blue_min: 455
+    iaw_cf_max: 526.60
+    iaw_cf_min: 526.25
+    iaw_max: 527.0
+    iaw_min: 525.8
+    red_max: 620
+    red_min: 550
+  estimate_lineouts_iaw: false
+  estimate_lineouts_epw: false
+  lineouts:
+    end: 700
+    skip: 15
+    start: 340
+    type: pixel
+  shotnum: 102727
+mlflow:
+  experiment: julie-inverse-thomson-scattering
+  run: EPW imaging  m false
+other:
+  PhysParams:
+    widIRF:
+      ang_FWHM_ele: 1.0
+      spect_FWHM_ele: 0.9
+      spect_stddev_ele: 0.1
+      spect_stddev_ion: 0.015
+  calc_sigmas: false
+  extraoptions:
+    fit_EPWb: true
+    fit_EPWr: true
+    fit_IAW: false
+    load_ele_spec: true
+    load_ion_spec: false
+    spectype: imaging
+  refit: false
+  refit_thresh: 600
+parameters:
+  general:
+    Te_gradient:
+      active: false
+      lb: 0.0
+      num_grad_points: 1
+      ub: 10.0
+      val: 0.0
+    Va:
+      active: false
+      angle: 0.0
+      lb: -1.0
+      ub: 3.5
+      val: 0.5
+    amp1:
+      active: true
+      lb: 0.0
+      ub: 1.2
+      val: 1.0
+    amp2:
+      active: true
+      lb: 0.0
+      ub: 1.2
+      val: 1.0
+    amp3:
+      active: false
+      lb: 0.0
+      ub: 1.5
+      val: 0.5
+    lam:
+      active: false
+      lb: 525.5
+      ub: 527.0
+      val: 526.5
+    ne_gradient:
+      active: false
+      lb: 0.0
+      num_grad_points: 1
+      ub: 15.0
+      val: 0.0
+    type:
+      active: false
+      general: null
+    ud:
+      active: false
+      angle: 0.0
+      lb: 0.0
+      ub: 2.0
+      val: 0.4
+  species1:
+    Te:
+      active: true
+      lb: -0.1
+      ub: 1.2
+      val: 0.15
+    fe:
+      active: false
+      dim: 1
+      fe_decrease_strict: false
+      lb: -100.0
+      length: 3999
+      m_asym: 1.0
+      m_theta: 0.0
+      symmetric: false
+      temp_asym: 1.0
+      type:
+        DLM: null
+      ub: -0.5
+      v_res: 0.05
+      val: []
+    m:
+      active: true
+      intens: 1.0
+      lb: 0.0
+      matte: false
+      ub: 1.0
+      val: 0.0
+    ne:
+      active: true
+      lb: 0.0
+      ub: 2.0
+      val: 1.5
+    type:
+      active: false
+      electron: null
+  species2:
+    A:
+      active: false
+      val: 1.0
+    Ti:
+      active: false
+      lb: 0.0
+      same: false
+      ub: 1.2
+      val: 0.1
+    Z:
+      active: false
+      lb: 0.0
+      ub: 1.0
+      val: 1.0
+    fract:
+      active: false
+      val: 1.0
+    type:
+      active: false
+      ion: null

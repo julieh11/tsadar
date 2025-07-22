@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/pythonProject/inverse-thomson-scattering/mlruns/305449103974076297/0dd9b051333341d49e356d8737335614/artifacts
+end_time: 1729266630947
+entry_point_name: ''
+experiment_id: '305449103974076297'
+lifecycle_stage: active
+run_id: 0dd9b051333341d49e356d8737335614
+run_name: Imaging combined focus on EPW (400-500)
+run_uuid: 0dd9b051333341d49e356d8737335614
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729266411693
+status: 4
+tags: []
+user_id: jher

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuring the inputs &mdash; TSADAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/github_style.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Default options" href="defaults.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3c4142" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best_practice.html">Best Practices for Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuring the inputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mlflow">MLFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-options">Other options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="defaults.html">Default options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math.html">Implementation of Thomson Scattering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_main.html">API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3c4142" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TSADAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configuring the inputs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/inputs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="defaults.html" class="btn btn-neutral float-right" title="Default options" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuring-the-inputs">
+<h1>Configuring the inputs<a class="headerlink" href="#configuring-the-inputs" title="Link to this heading"></a></h1>
+<p>This code utilizes 2 input deck called <cite>inputs.yaml</cite> and <cite>defaults.yaml</cite>. The primary input deck <cite>inputs.yaml</cite> contains
+all the commonly altered options, things like which parameters are going to be fit, the initial values, the shotnumber
+and the lineouts you want to fit. The secondary input deck <cite>defaults.yaml</cite> contains additional options that rarely need
+to be altered and default values for all options.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<p>All fitting parameters are found in the <code class="docutils literal notranslate"><span class="pre">parameters:</span></code> section of the input decks. These parameters are separated into
+species fields. These species can be called anything but best practice is to name them <code class="docutils literal notranslate"><span class="pre">species1</span></code> through
+<code class="docutils literal notranslate"><span class="pre">speciesn</span></code>.</p>
+<p>Each species must have a <code class="docutils literal notranslate"><span class="pre">type</span></code> field which specifies weather the species is an electron, ion, or the unique general
+type. These three key word should be entered as fields of the <code class="docutils literal notranslate"><span class="pre">type</span></code> field. Any number of ion species can be included,
+and while the code currently only supports one electron species this will be expanded in the future. The <code class="docutils literal notranslate"><span class="pre">general</span></code>
+species is used to specify properties that apply to the system as a whole and are not unique to a species, therefore
+only one can be included.</p>
+<p>Within each species live the parameters that are relevent to fitting that species, each parameter has at least 4
+attributes. <code class="docutils literal notranslate"><span class="pre">val</span></code> is the initial value used as a starting condition for the minimizer. <code class="docutils literal notranslate"><span class="pre">active</span></code> is a boolean
+determining if a parameter is to be fit, i.e <code class="docutils literal notranslate"><span class="pre">active:</span> <span class="pre">True</span></code> means a parameter with be fit and <code class="docutils literal notranslate"><span class="pre">active:</span> <span class="pre">False</span></code> means
+a parameter with be held constant at <code class="docutils literal notranslate"><span class="pre">val</span></code>. <code class="docutils literal notranslate"><span class="pre">ub</span></code> and <code class="docutils literal notranslate"><span class="pre">lb</span></code> are upper and lower bounds respectively for the
+parameters.</p>
+<section id="electron-parameters">
+<h3>Electron parameters<a class="headerlink" href="#electron-parameters" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Te</span></code> is the electron temperature in keV</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ne</span></code> is the electron density in 10^20 cm^-3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">m</span></code> is the electron distribution function super-Gaussian parameter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fe</span></code> contains additional options for controlling the distribution function <em>more info to come</em></p></li>
+</ul>
+</section>
+<section id="ion-parameters">
+<h3>Ion parameters<a class="headerlink" href="#ion-parameters" title="Link to this heading"></a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ti</span></code> is the ion temperature in keV</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">same</span></code> is a special field for ion temperature, if multiple ions are used subsequent ions can have this boolean</dt><dd><p>set to True in order to use a single ion temperature for all ion species</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Z</span></code> is the average ionization state</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code> is the atomic mass</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fract</span></code> is the element ratio for multispecies plasmas, the sum of fract for all species should be 1</p></li>
+</ul>
+</section>
+<section id="general-parameters">
+<h3>General parameters<a class="headerlink" href="#general-parameters" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">amp1</span></code> is the blue-shifted EPW amplitude multiplier with 1 being the maxmimum of the data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amp2</span></code> is the red-shifted EPW amplitude multiplier with 1 being the maxmimum of the data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amp3</span></code> is the IAW amplitude multiplier with 1 being the maxmimum of the data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lam</span></code> is the probe wavelength in nanometers, small shift (&lt;5nm) can be used to mimic wavelength calibration uncertainty</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Te_gradient</span></code> is the electron temperature spatial gradient in % of <code class="docutils literal notranslate"><span class="pre">Te</span></code>. <code class="docutils literal notranslate"><span class="pre">Te</span></code> will take the form <code class="docutils literal notranslate"><span class="pre">linspace(Te-Te*Te_gradient.val/200,</span> <span class="pre">Te+Te*Te_gradient.val/200,</span> <span class="pre">Te_gradient.num_grad_points)</span></code>, A <code class="docutils literal notranslate"><span class="pre">val!=0</span></code> will calculate the spectrum with a gradient.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ne_gradient</span></code> is the electron density spatial gradient in % of <code class="docutils literal notranslate"><span class="pre">ne</span></code>. <code class="docutils literal notranslate"><span class="pre">ne</span></code> will take the form <code class="docutils literal notranslate"><span class="pre">linspace(ne-ne*ne_gradient.val/200,</span> <span class="pre">ne+ne*ne_gradient.val/200,</span> <span class="pre">ne_gradient.num_grad_points)</span></code>, A <code class="docutils literal notranslate"><span class="pre">val!=0</span></code> will calculate the spectrum with a gradient.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ud</span></code> is the electron drift velocity (relative to the ions) in 10^6 cm/s</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Va</span></code> is the plasma fluid velocity or flow velocity in 10^6 cm/s</p></li>
+</ul>
+</section>
+</section>
+<section id="mlflow">
+<h2>MLFlow<a class="headerlink" href="#mlflow" title="Link to this heading"></a></h2>
+<p>When running all code output is managed by MLFlow. This included the fitted parameters as well as the automated plots.
+A copy of the inputs decks will also be saved by MLFlow for easier reference. The MLFlow options can be found at the
+end of <code class="docutils literal notranslate"><span class="pre">inputs.yaml</span></code> in the <code class="docutils literal notranslate"><span class="pre">mlflow:</span></code> section.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">experiment</span></code> is the name of the experiment folder that the run will be associated with.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run</span></code> is the name of the analysis or forward model run. Run names do not need to be unique as many runs can be created with the same name. It is recomended that this is changed before each run.</p></li>
+</ul>
+</section>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">data:</span></code> section contains the specifics on which shot and what region of the shot should be analyzed.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">shotnum</span></code> is the OMEGA shot number. For non-OMEGA data please contact the developers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lineouts</span></code> specifies the region of the data to take lineouts from</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> specifies the units that the linout locations are in. Options are <code class="docutils literal notranslate"><span class="pre">um</span></code> for microns in imaging data, <code class="docutils literal notranslate"><span class="pre">ps</span></code> for picoseconds in time resolved data, <code class="docutils literal notranslate"><span class="pre">pixel</span></code> is the general option to specify locations in pixel numbers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code> the first location where a lineout will be taken.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end</span></code> the last location where a lineout will be take</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip</span></code> the distance between lineouts in the same units specified by <code class="docutils literal notranslate"><span class="pre">type</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background</span></code> specifies the location where the background will be analyzed.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> there are multiple background algorithms availible. This field is used to select the approprate one. The options are <code class="docutils literal notranslate"><span class="pre">Fit</span></code> in order to fit a model to the background, <code class="docutils literal notranslate"><span class="pre">Shot</span></code> in order to subtract a background shot, and <code class="docutils literal notranslate"><span class="pre">pixel</span></code> to specify a location with background data to be subtracted.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice</span></code> is the location for the background algorithm. If <code class="docutils literal notranslate"><span class="pre">Fit</span></code> or <code class="docutils literal notranslate"><span class="pre">pixel</span></code> are used this is the pixel location, if <code class="docutils literal notranslate"><span class="pre">Shot</span></code> is used this is the shot number.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="other-options">
+<h2>Other options<a class="headerlink" href="#other-options" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">other:</span></code> section includes options specifying the types of data that are being fit and other options
+on how to perform the fit.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">load_ion_spec</span></code> is a boolean determining if IAW data will be loaded.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_ele_spec</span></code> is a boolean determining if EPW data will be loaded.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_IAW</span></code> is a boolean determining if IAW data will be fit by including it in the loss metric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_EPWb</span></code> is a boolean determining if the blue shifted EPW data will be fit by including it in the loss metric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_EPWr</span></code> is a boolean determining if the red shifted EPW data will be fit by including it in the loss metric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refit</span></code> is a boolean determinging if poor fits will attempt to be refit.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refit_thresh</span></code> is the value of the loss metric below above which refits will be performed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calc_sigmas</span></code> is a boolean determining if a Hessian will be computed to determine the uncertainty in fitted parameters.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="defaults.html" class="btn btn-neutral float-right" title="Default options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Avi Milder, Archis Joglekar.
+      <span class="lastupdated">Last updated on Jul 16, 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

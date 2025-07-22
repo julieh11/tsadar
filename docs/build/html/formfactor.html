@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Factor API &mdash; TSADAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/github_style.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FitModel API" href="fitmodel.html" />
+    <link rel="prev" title="Spectrum API" href="spectrum.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3c4142" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best_practice.html">Best Practices for Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Configuring the inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defaults.html">Default options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math.html">Implementation of Thomson Scattering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api_main.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api_main.html#high-level-api">High Level API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_main.html#middle-level-api">Middle (?) Level API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api_main.html#low-level-api">Low Level API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3c4142" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TSADAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api_main.html">API Documentation</a></li>
+      <li class="breadcrumb-item active">Form Factor API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/formfactor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="spectrum.html" class="btn btn-neutral float-left" title="Spectrum API" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitmodel.html" class="btn btn-neutral float-right" title="FitModel API" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="form-factor-api">
+<h1>Form Factor API<a class="headerlink" href="#form-factor-api" title="Link to this heading"></a></h1>
+<p>This is the module that handles the loss function, gradient calculation, hessian calculation, and parameter generation</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="inverse_thomson_scattering.model.physics.form_factor.FormFactor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">inverse_thomson_scattering.model.physics.form_factor.</span></span><span class="sig-name descname"><span class="pre">FormFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lamrang</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fe_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ergodicio/inverse-thomson-scattering/blob/cc79df89335dbf112f1fb787d909e50a214e4f05/inverse_thomson_scattering/model/physics/form_factor.py#L46-L472"><span class="linkcode-link"><span class="pre">Source</span></span></a><a class="headerlink" href="#inverse_thomson_scattering.model.physics.form_factor.FormFactor" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="inverse_thomson_scattering.model.physics.form_factor.FormFactor.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cur_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cur_Te</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fract</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_and_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ergodicio/inverse-thomson-scattering/blob/cc79df89335dbf112f1fb787d909e50a214e4f05/inverse_thomson_scattering/model/physics/form_factor.py#L95-L230"><span class="linkcode-link"><span class="pre">Source</span></span></a><a class="headerlink" href="#inverse_thomson_scattering.model.physics.form_factor.FormFactor.__call__" title="Link to this definition"></a></dt>
+<dd><p>Calculates the standard collisionless Thomson spectral density function S(k,omg) and is capable of handling
+multiple plasma conditions and scattering angles. Distribution functions can be arbitrary as calculations of the
+susceptibility is done on-the-fly. Calculations are done in 4 dimension with the following shape,
+[number of gradient-points, number of wavelength points, number of angles, number of ion-species].</p>
+<p>In angular, <cite>fe</cite> is a Tuple, Distribution function (DF), normalized velocity (x), and angles from k_L to f1 in
+radians</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> – parameter dictionary, must contain the drift ‘ud’ and flow ‘Va’ velocities in the ‘general’ field</p></li>
+<li><p><strong>cur_ne</strong> – electron density in 1/cm^3 [1 by number of gradient points]</p></li>
+<li><p><strong>cur_Te</strong> – electron temperature in keV [1 by number of gradient points]</p></li>
+<li><p><strong>A</strong> – atomic mass [1 by number of ion species]</p></li>
+<li><p><strong>Z</strong> – ionization state [1 by number of ion species]</p></li>
+<li><p><strong>Ti</strong> – ion temperature in keV [1 by number of ion species]</p></li>
+<li><p><strong>fract</strong> – relative ion composition [1 by number of ion species]</p></li>
+<li><p><strong>sa</strong> – scattering angle in degrees [1 by number of angles]</p></li>
+<li><p><strong>f_and_v</strong> – a distribution function object, contains the numerical distribution function and its velocity grid</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><em>formfactor</em> –</p>
+<dl class="simple">
+<dt>array of the calculated spectrum, has the shape [number of gradient-points, number of</dt><dd><p>wavelength points, number of angles]</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="inverse_thomson_scattering.model.physics.form_factor.FormFactor.rotate">
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reshape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Array</span></span></span><a class="reference external" href="https://github.com/ergodicio/inverse-thomson-scattering/blob/cc79df89335dbf112f1fb787d909e50a214e4f05/inverse_thomson_scattering/model/physics/form_factor.py#L232-L256"><span class="linkcode-link"><span class="pre">Source</span></span></a><a class="headerlink" href="#inverse_thomson_scattering.model.physics.form_factor.FormFactor.rotate" title="Link to this definition"></a></dt>
+<dd><p>Rotate a 2D array by a given angle in radians</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – 2D array</p></li>
+<li><p><strong>angle</strong> – angle in radians</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>interpolated 2D array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="inverse_thomson_scattering.model.physics.form_factor.FormFactor.calc_chi_vals">
+<span class="sig-name descname"><span class="pre">calc_chi_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">carry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ergodicio/inverse-thomson-scattering/blob/cc79df89335dbf112f1fb787d909e50a214e4f05/inverse_thomson_scattering/model/physics/form_factor.py#L258-L303"><span class="linkcode-link"><span class="pre">Source</span></span></a><a class="headerlink" href="#inverse_thomson_scattering.model.physics.form_factor.FormFactor.calc_chi_vals" title="Link to this definition"></a></dt>
+<dd><p>Calculate the values of the susceptibility at a given point in the distribution function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carry</strong> – container for
+x: 1D array
+DF: 2D array</p></li>
+<li><p><strong>xs</strong> – container for
+element: angle in radians
+xie_mag_at: float
+klde_mag_at: float</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>fe_vphi</em> – float, value of the projected distribution function at the point xie
+chiEI: float, value of the imaginary part of the electron susceptibility at the point xie
+chiERrat: float, value of the real part of the electron susceptibility at the point xie</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="inverse_thomson_scattering.model.physics.form_factor.FormFactor.calc_all_chi_vals">
+<span class="sig-name descname"><span class="pre">calc_all_chi_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DF</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xie_mag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">klde_mag</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ergodicio/inverse-thomson-scattering/blob/cc79df89335dbf112f1fb787d909e50a214e4f05/inverse_thomson_scattering/model/physics/form_factor.py#L305-L331"><span class="linkcode-link"><span class="pre">Source</span></span></a><a class="headerlink" href="#inverse_thomson_scattering.model.physics.form_factor.FormFactor.calc_all_chi_vals" title="Link to this definition"></a></dt>
+<dd><p>Calculate the susceptibility values for all the desired points xie</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – normalized velocity grid</p></li>
+<li><p><strong>beta</strong> – angle of the k-vector form the x-axis</p></li>
+<li><p><strong>DF</strong> – 2D array, distribution function</p></li>
+<li><p><strong>xie_mag</strong> – magnitude of the normalized velocity points where the calculations need to be performed</p></li>
+<li><p><strong>klde_mag</strong> – magnitude of the wavevector time debye length where the calculations need to be performed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>fe_vphi</em> – projected distribution function
+chiEI: imaginary part of the electron susceptibility
+chiERrat: real part of the electron susceptibility</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="inverse_thomson_scattering.model.physics.form_factor.FormFactor.calc_in_2D">
+<span class="sig-name descname"><span class="pre">calc_in_2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ud_ang</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">va_ang</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cur_ne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cur_Te</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fract</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_and_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ergodicio/inverse-thomson-scattering/blob/cc79df89335dbf112f1fb787d909e50a214e4f05/inverse_thomson_scattering/model/physics/form_factor.py#L333-L472"><span class="linkcode-link"><span class="pre">Source</span></span></a><a class="headerlink" href="#inverse_thomson_scattering.model.physics.form_factor.FormFactor.calc_in_2D" title="Link to this definition"></a></dt>
+<dd><p>Calculates the collisionless Thomson spectral density function S(k,omg) for a 2D numerical EDF, capable of
+handling multiple plasma conditions and scattering angles. Distribution functions can be arbitrary as
+calculations of the susceptibility are done on-the-fly. Calculations are done in 4 dimension with the following
+shape, [number of gradient-points, number of wavelength points, number of angles, number of ion-species].</p>
+<p>In angular, <cite>fe</cite> is a Tuple, Distribution function (DF), normalized velocity (x), and angles from k_L to f1 in
+radians</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> – parameter dictionary, must contain the drift ‘ud’ and flow ‘Va’ velocities in the ‘general’ field</p></li>
+<li><p><strong>ud_ang</strong> – angle between electron drift and x-axis</p></li>
+<li><p><strong>va_ang</strong> – angle between ion flow and x-axis</p></li>
+<li><p><strong>cur_ne</strong> – electron density in 1/cm^3 [1 by number of gradient points]</p></li>
+<li><p><strong>cur_Te</strong> – electron temperature in keV [1 by number of gradient points]</p></li>
+<li><p><strong>A</strong> – atomic mass [1 by number of ion species]</p></li>
+<li><p><strong>Z</strong> – ionization state [1 by number of ion species]</p></li>
+<li><p><strong>Ti</strong> – ion temperature in keV [1 by number of ion species]</p></li>
+<li><p><strong>fract</strong> – relative ion composition [1 by number of ion species]</p></li>
+<li><p><strong>sa</strong> – scattering angle in degrees [1 by number of angles]</p></li>
+<li><p><strong>f_and_v</strong> – a distribution function object, contains the numerical distribution function and its velocity grid</p></li>
+<li><p><strong>lam</strong> – probe wavelength</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><em>formfactor</em> –</p>
+<dl class="simple">
+<dt>array of the calculated spectrum, has the shape [number of gradient-points, number of</dt><dd><p>wavelength points, number of angles]</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="inverse_thomson_scattering.model.physics.form_factor.zprimeMaxw">
+<span class="sig-prename descclassname"><span class="pre">inverse_thomson_scattering.model.physics.form_factor.</span></span><span class="sig-name descname"><span class="pre">zprimeMaxw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xi</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ergodicio/inverse-thomson-scattering/blob/cc79df89335dbf112f1fb787d909e50a214e4f05/inverse_thomson_scattering/model/physics/form_factor.py#L16-L43"><span class="linkcode-link"><span class="pre">Source</span></span></a><a class="headerlink" href="#inverse_thomson_scattering.model.physics.form_factor.zprimeMaxw" title="Link to this definition"></a></dt>
+<dd><p>This function calculates the derivative of the Z - function given an array of normalized phase velocities(xi) as
+defined in Chapter 5 of the Thomson scattering book. For values of xi between - 10 and 10 a table is used. Outside
+of this range the asymptotic approximation(see Eqn. 5.2.10) is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>xi</strong> – normalized phase velocities to calculate the zprime function at, these values must be in ascending order</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Zp</em> – array with the real and imaginary components of Z-prime</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spectrum.html" class="btn btn-neutral float-left" title="Spectrum API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fitmodel.html" class="btn btn-neutral float-right" title="FitModel API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Avi Milder, Archis Joglekar.
+      <span class="lastupdated">Last updated on Jul 16, 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+data:
+  background:
+    show: false
+    slice: 900
+    type: fit
+  lineouts:
+    end: 660
+    skip: 4
+    start: 340
+    type: pixel
+  shotnum: 101675
+machine: gpu
+mlflow:
+  experiment: inverse-thomson-scattering
+  run: N-H-45-55-time_series
+other:
+  PhysParams:
+    widIRF:
+      spect_stddev_ele: 0.1
+      spect_stddev_ion: 0.015
+  calc_sigmas: false
+  extraoptions:
+    fit_EPWb: true
+    fit_EPWr: true
+    fit_IAW: false
+    load_ele_spec: true
+    load_ion_spec: true
+    spectype: electron
+  refit: false
+  refit_thresh: 5.0
+parameters:
+  general:
+    Te_gradient:
+      active: false
+      lb: 0.0
+      num_grad_points: 1
+      ub: 10.0
+      val: 0.0
+    Va:
+      active: true
+      angle: 0.0
+      lb: -10.0
+      ub: 10.0
+      val: 0.0
+    amp1:
+      active: false
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    amp2:
+      active: false
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    amp3:
+      active: true
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    lam:
+      active: false
+      lb: 526.0
+      ub: 527.0
+      val: 526.4
+    ne_gradient:
+      active: false
+      lb: 0.0
+      num_grad_points: 1
+      ub: 15.0
+      val: 0.0
+    type:
+      active: false
+      general: null
+    ud:
+      active: true
+      angle: 0.0
+      lb: -10.0
+      ub: 10.0
+      val: 0.0
+  species1:
+    Te:
+      active: true
+      lb: 0.05
+      ub: 1.2
+      val: 0.33
+    fe:
+      active: false
+      dim: 1
+      fe_decrease_strict: false
+      lb: -100.0
+      length: 3999
+      m_asym: 1.0
+      m_theta: 0.0
+      symmetric: false
+      temp_asym: 1.0
+      type:
+        DLM: null
+      ub: -0.5
+      v_res: 0.05
+      val: []
+    m:
+      active: false
+      intens: 2.0
+      lb: 2.0
+      matte: false
+      ub: 5.0
+      val: 2.0
+    ne:
+      active: false
+      lb: 0.01
+      ub: 0.75
+      val: 0.15
+    type:
+      active: false
+      electron: null
+  species2:
+    A:
+      active: false
+      val: 40.0
+    Ti:
+      active: true
+      lb: 0.01
+      same: false
+      ub: 1.0
+      val: 0.1
+    Z:
+      active: true
+      lb: 1.0
+      ub: 18.0
+      val: 16.0
+    fract:
+      active: false
+      val: 1.0
+    type:
+      active: false
+      ion: null
+series:
+  param1: Z
+  param2: Te
+  param3: Ti
+  param4: ne
+  vals1:
+  - - 3.8
+    - 1.0
+  - - 4.5
+    - 1.0
+  - - 4.9
+    - 1.0
+  - - 5.2
+    - 1.0
+  - - 5.6.
+    - 1.0
+  - - 6
+    - 1.0
+  - - 6.2
+    - 1.0
+  vals2:
+  - 0.17096
+  - 0.31144
+  - 0.38304
+  - 0.42856
+  - 0.4732
+  - 0.53568
+  - 0.53912
+  vals3:
+  - 0.017096
+  - 0.031144
+  - 0.038304
+  - 0.042856
+  - 0.04732
+  - 0.053568
+  - 0.053912
+  vals4:
+  - 0.1387
+  - 0.18
+  - 0.2067
+  - 0.2189
+  - 0.2293
+  - 0.2311
+  - 0.2311

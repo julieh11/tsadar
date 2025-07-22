@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Example: Fitting time-resolved data &#8212; TSADAR  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=81ef5681" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/github_style.css?v=1093691d" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examplefit';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Aug 23, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/lafoto.JPG" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="_static/lafoto.JPG" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Home</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="inputs.html">
+    Inputs Deck
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="defaults.html">
+    Default options
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples.html">
+    Examples
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="tresolved.html">
+    Example: Fitting time-resolved data
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="forward_pass.html">
+    Forward pass
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="TS_fundamentals.html">
+    Fundamentals of Thomson Scattering
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math.html">
+    Implementation of Thomson Scattering
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="FAQ.html">
+    FAQ
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api_main.html">
+    API Documentation
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ergodicio/inverse-thomson-scattering.git" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="inputs.html">
+    Inputs Deck
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="defaults.html">
+    Default options
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tresolved.html">
+    Example: Fitting time-resolved data
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="forward_pass.html">
+    Forward pass
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="TS_fundamentals.html">
+    Fundamentals of Thomson Scattering
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math.html">
+    Implementation of Thomson Scattering
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="FAQ.html">
+    FAQ
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api_main.html">
+    API Documentation
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ergodicio/inverse-thomson-scattering.git" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Inputs Deck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defaults.html">Default options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tresolved.html">Example: Fitting time-resolved data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forward_pass.html">Forward pass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TS_fundamentals.html">Fundamentals of Thomson Scattering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math.html">Implementation of Thomson Scattering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_main.html">API Documentation</a></li>
+</ul>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Example:...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="example-fitting-time-resolved-data">
+<h1>Example: Fitting time-resolved data<a class="headerlink" href="#example-fitting-time-resolved-data" title="Link to this heading">#</a></h1>
+<p>This is an example for fitting time-resolved data.</p>
+<p>Firstly, you will want to download this TSADAR, install all the necesary requirements, and create a virtual environment.
+Instructions for that can be found in the <a class="reference internal" href="getting_started.html#getting-started"><span class="std std-ref">getting started</span></a> page.</p>
+<section id="importing-raw-data">
+<h2>Importing raw data<a class="headerlink" href="#importing-raw-data" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="_images/data_to_env.png"><img alt="_images/data_to_env.png" class="align-right" src="_images/data_to_env.png" style="width: 413px; height: 163px;" /></a>
+<hr class="docutils" />
+<p>Once you have created a virtual environment, you should add your raw data, which should be a <span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">.hdf`</span> file
+into the folder where you created the virtual envirnment</p>
+</section>
+<hr class="docutils" />
+<section id="adjusting-parameters">
+<h2>Adjusting parameters<a class="headerlink" href="#adjusting-parameters" title="Link to this heading">#</a></h2>
+<p>Set up the inputs and defaults to best fit your data. This can be acomplished by configuring the input decks.The code uses two input decks.
+Which can be found on inverse-thomson-scattering/configd/1d.</p>
+<p>For fitting a new data set, it is recomended that start by fitting a small region of the data using a small number of lineouts.
+Set the <span class="sd-sphinx-override sd-badge sd-bg-light sd-bg-text-light">lineout:start</span> and <span class="sd-sphinx-override sd-badge sd-bg-info sd-bg-text-info">lineout:end</span> close together, to select a small region. decrease the <span class="sd-sphinx-override sd-badge">lineouts:skip</span> to accelerate the runnig time.
+Setting the  <span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">lineout:start</span> and <span class="sd-sphinx-override sd-badge sd-outline-success sd-text-success">lineout:end</span> close together will  a small region
+if this is the first time you are fitting a data set, it is recommended that you fit a small region of the data,
+using a small number of lineouts. To fit a small region of the data, edit the lineout:start and lineout:end parameeters to be close, and increase lineouts:skip.
+These parameters can be found in the <span class="sd-sphinx-override sd-badge">Inputs.yalm.</span> deck. Make sure to save your changes, and get ready to run the code.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Inputs.yaml</div>
+<p class="sd-card-text">Primary input deck will override defaults deck.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="inputs.html#inputs-deck"><span class="std std-ref">Inputs Deck</span></a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">shotnum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1234567</span>
+<span class="hll"><span class="w">    </span><span class="nt">lienouts</span><span class="p">:</span>
+</span><span class="w">        </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">pixel</span>
+<span class="hll"><span class="w">        </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">skip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+</span><span class="w">    </span><span class="nt">background</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">pixel</span>
+<span class="w">        </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+</pre></div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Defaults.yaml</div>
+<p class="sd-card-text">Secondary imput deck, contains the blue and red shift minimum and maximum values</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="defaults.html#configuring-the-default"><span class="std std-ref">Default options</span></a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">data</span><span class="p">:</span>
+<span class="nt">shotnum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1234567</span>
+<span class="nt">shotDay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">launch_data_visualizer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="nt">fit_rng</span><span class="p">:</span>
+<span class="hll"><span class="w">    </span><span class="nt">blue_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">460</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">blue_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">510</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">red_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">545</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">red_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span>
+</span><span class="w">    </span><span class="nt">iaw_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">525.5</span>
+<span class="w">    </span><span class="nt">iaw_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">527.5</span>
+<span class="w">    </span><span class="nt">iaw_cf_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">526.49</span>
+<span class="w">    </span><span class="nt">iaw_cf_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">526.51</span>
+<span class="w">    </span><span class="nt">forward_epw_start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">400</span>
+<span class="w">    </span><span class="nt">forward_epw_end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">700</span>
+<span class="w">    </span><span class="nt">forward_iaw_start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">525.75</span>
+<span class="w">    </span><span class="nt">forward_iaw_end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">527.25</span>
+</pre></div>
+</div>
+</section>
+<section id="running-the-code">
+<h2>Running the code<a class="headerlink" href="#running-the-code" title="Link to this heading">#</a></h2>
+<p>Once you have adjusted the parameters, and saved the changes made. You will want to implement the run command.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">run_tsadar</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">cfg</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;/&lt;</span><span class="n">to</span><span class="o">&gt;/&lt;</span><span class="n">inputs</span><span class="o">&gt;/&lt;</span><span class="n">folder</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">mode</span> <span class="n">fit</span>
+</pre></div>
+</div>
+<p>This command will yeild the following output, indicating the the fit is completed:</p>
+<p>The following command will allow you to visualize the results of the fitting. The output link will redirect you to a local site where the outputs can be viewed.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mlflow<span class="w"> </span>ui
+</pre></div>
+</div>
+<img alt="_elfoldermlflow_home.png" src="_elfoldermlflow_home.png" />
+<p>Click the follow the link to vizialize the data. The resulting plots can be founs in the <span class="sd-sphinx-override sd-badge">Artifacts</span> unedr the folder <span class="sd-sphinx-override sd-badge">plots</span>.
+Best and worst folders contain the best and worst fits respectively. `</p>
+</section>
+<section id="fitting-a-new-data-set">
+<h2>Fitting a new data set<a class="headerlink" href="#fitting-a-new-data-set" title="Link to this heading">#</a></h2>
+<p>For fitting a new data set, it is recomended to fit a small region of the data using a small number of
+linouts. This can be acomplished by setting the lineout:start and lineout:end to be close, or by increasing
+lineouts:skip
+Once you have adjusted the inputs and outputs</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Inputs.yaml</div>
+<p class="sd-card-text">Primary input deck</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="inputs.html#inputs-deck"><span class="std std-ref">Inputs Deck</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Defaults.yaml</div>
+<p class="sd-card-text">Secondary input deck</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="defaults.html#configuring-the-default"><span class="std std-ref">Default options</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extra-info-in-the-inputs">
+<h2>Extra info in the inputs<a class="headerlink" href="#extra-info-in-the-inputs" title="Link to this heading">#</a></h2>
+<p>The inputs for the code are stored in an input deck. The default location for this input deck and therefore
+the starting path for running jobs is <code class="code docutils literal notranslate"><span class="pre">inverse_thomson_scattering/configs/1d</span></code>. These inputs should be
+modified to change the specifics to fit your analysis needs. More information on the Input deck can be found
+on the <a class="reference internal" href="inputs.html#inputs-deck"><span class="std std-ref">Configuring the inputs</span></a> page.</p>
+</section>
+<section id="extra-info-on-fitting-the-data-set-for-a-small-region">
+<h2>Extra info on fitting the data set for a small region<a class="headerlink" href="#extra-info-on-fitting-the-data-set-for-a-small-region" title="Link to this heading">#</a></h2>
+<p>For fitting a new data set, it is recomended to start by fitting a small region of the data using a small number of lineouts.
+Set the <span class="sd-sphinx-override sd-badge sd-bg-light sd-bg-text-light">lineout:start</span> and <span class="sd-sphinx-override sd-badge sd-bg-info sd-bg-text-info">lineout:end</span> close together, to select a small region.
+Increase the <span class="sd-sphinx-override sd-badge">lineouts:skip</span> to decrease the resolution.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, Avi Milder, Archis Joglekar.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Documentation &mdash; TSADAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/github_style.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Runner API" href="runner.html" />
+    <link rel="prev" title="Contributing" href="contributing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3c4142" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best_practice.html">Best Practices for Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Configuring the inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defaults.html">Default options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math.html">Implementation of Thomson Scattering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#high-level-api">High Level API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#middle-level-api">Middle (?) Level API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#low-level-api">Low Level API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3c4142" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TSADAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api_main.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="runner.html" class="btn btn-neutral float-right" title="Runner API" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-documentation">
+<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Link to this heading"></a></h1>
+<p>Note: This section is under heavy development and the API is very much subject to change</p>
+<section id="high-level-api">
+<h2>High Level API<a class="headerlink" href="#high-level-api" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="runner.html">Runner API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runner.html#inverse_thomson_scattering.runner.load_and_make_folders"><code class="docutils literal notranslate"><span class="pre">load_and_make_folders()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="runner.html#inverse_thomson_scattering.runner.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="runner.html#inverse_thomson_scattering.runner._run_"><code class="docutils literal notranslate"><span class="pre">_run_()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="runner.html#inverse_thomson_scattering.runner.run_job"><code class="docutils literal notranslate"><span class="pre">run_job()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="runner.html#inverse_thomson_scattering.runner.calc_series"><code class="docutils literal notranslate"><span class="pre">calc_series()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fitter.html">Fitter API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fitter.html#inverse_thomson_scattering.fitter.init_param_norm_and_shift"><code class="docutils literal notranslate"><span class="pre">init_param_norm_and_shift()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitter.html#inverse_thomson_scattering.fitter._validate_inputs_"><code class="docutils literal notranslate"><span class="pre">_validate_inputs_()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitter.html#inverse_thomson_scattering.fitter.scipy_angular_loop"><code class="docutils literal notranslate"><span class="pre">scipy_angular_loop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitter.html#inverse_thomson_scattering.fitter.angular_adam"><code class="docutils literal notranslate"><span class="pre">angular_adam()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitter.html#inverse_thomson_scattering.fitter.one_d_loop"><code class="docutils literal notranslate"><span class="pre">one_d_loop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitter.html#inverse_thomson_scattering.fitter.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="middle-level-api">
+<h2>Middle (?) Level API<a class="headerlink" href="#middle-level-api" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="TSfitter.html">TS Fitter API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="TSfitter.html#inverse_thomson_scattering.model.TSFitter.TSFitter"><code class="docutils literal notranslate"><span class="pre">TSFitter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spectrum.html">Spectrum API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spectrum.html#inverse_thomson_scattering.model.spectrum.SpectrumCalculator"><code class="docutils literal notranslate"><span class="pre">SpectrumCalculator</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="low-level-api">
+<h2>Low Level API<a class="headerlink" href="#low-level-api" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="formfactor.html">Form Factor API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="formfactor.html#inverse_thomson_scattering.model.physics.form_factor.FormFactor"><code class="docutils literal notranslate"><span class="pre">FormFactor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="formfactor.html#inverse_thomson_scattering.model.physics.form_factor.zprimeMaxw"><code class="docutils literal notranslate"><span class="pre">zprimeMaxw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fitmodel.html">FitModel API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fitmodel.html#inverse_thomson_scattering.model.physics.generate_spectra.FitModel"><code class="docutils literal notranslate"><span class="pre">FitModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ratintn.html">Dispersion Relation Integral</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ratintn.html#inverse_thomson_scattering.model.physics.ratintn.ratintn"><code class="docutils literal notranslate"><span class="pre">ratintn()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ratintn.html#inverse_thomson_scattering.model.physics.ratintn.ratcen"><code class="docutils literal notranslate"><span class="pre">ratcen()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="runner.html" class="btn btn-neutral float-right" title="Runner API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Avi Milder, Archis Joglekar.
+      <span class="lastupdated">Last updated on Jul 16, 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

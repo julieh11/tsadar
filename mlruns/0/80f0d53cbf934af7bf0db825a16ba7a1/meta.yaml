@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/80f0d53cbf934af7bf0db825a16ba7a1/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 80f0d53cbf934af7bf0db825a16ba7a1
+run_name: defiant-ram-771
+run_uuid: 80f0d53cbf934af7bf0db825a16ba7a1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752776063485
+status: 1
+tags: []
+user_id: jher

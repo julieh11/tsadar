@@ -19,20 +19,20 @@ data:
   ele_lam_shift: 0.0
   ele_t0: 0
   fit_rng:
-    blue_max: 517
-    blue_min: 487
+    blue_max: 505
+    blue_min: 474
     forward_epw_end: 700
     forward_epw_start: 400
     forward_iaw_end: 527.25
     forward_iaw_start: 525.75
-    iaw_cf_max: 526.49
-    iaw_cf_min: 526.34
-    iaw_max: 526.8
-    iaw_min: 526.15
-    red_max: 589
-    red_min: 554
+    iaw_cf_max: 526.45
+    iaw_cf_min: 526.36
+    iaw_max: 526.68
+    iaw_min: 526.1
+    red_max: 580
+    red_min: 550
   ion_loss_scale: 1.0
-  ion_t0_shift: 0
+  ion_t0_shift: -109
   launch_data_visualizer: true
   lineouts:
     end: 600
@@ -42,19 +42,19 @@ data:
   probe_beam: P9
   shotDay: false
   shotnum: 101675
-feature_detector:
-  estimate_lineouts_iaw: false
-  estimate_lineouts_epw: true
-  buffer:
-    lineout_start: 40
-    lineout_end: 40
-    spectral_start: 40
-    spectral_end: 40
 dist_fit:
   smooth: true
   window:
     len: 0.2
     type: hamming
+feature_detector:
+  buffer:
+    lineout_end: 20
+    lineout_start: 20
+    spectral_end: 20
+    spectral_start: 20
+  estimate_lineouts_epw: true
+  estimate_lineouts_iaw: false
 mlflow:
   experiment: inverse-thomson-scattering
   run: new
@@ -63,18 +63,18 @@ nn:
   linear_widths: 16|8
   use: false
 optimizer:
-  batch_size: 2
+  batch_size: 6
   grad_method: AD
   hessian: false
   learning_rate: 0.01
   loss_method: l2
   method: l-bfgs-b
   moment_loss: false
-  num_epochs: 120
+  num_epochs: 250
   num_mins: 1
   parameter_norm: true
   refine_factor: 0
-  sequential: false
+  sequential: true
   x_norm: false
   y_norm: true
 other:
@@ -113,6 +113,26 @@ other:
   refit: false
   refit_thresh: 0.25
 parameters:
+  electron:
+    Te:
+      active: false
+      lb: 0.01
+      ub: 1.5
+      val: 0.6
+    fe:
+      active: false
+      dim: 1
+      nvx: 128
+      params:
+        Nl: 1
+        init_m: 2.7
+        nvr: 64
+      type: sphericalharmonic
+    ne:
+      active: false
+      lb: 0.001
+      ub: 1.0
+      val: 0.12
   general:
     Te_gradient:
       active: false
@@ -158,27 +178,6 @@ parameters:
       lb: -100.0
       ub: 100.0
       val: 0.0
-  electron:
-    Te:
-      active: false
-      lb: 0.01
-      ub: 1.5
-      val: 0.6
-    fe:
-      active: false
-      dim: 2
-      type: sphericalharmonic
-      nvx: 128
-      params:
-        init_m: 2.7
-        Nl: 1
-        nvr: 64
-    ne:
-      active: false
-      lb: 0.001
-      ub: 1.0
-      val: 0.2
-
   ion-1:
     A:
       active: false
@@ -196,10 +195,10 @@ parameters:
     fract:
       active: false
       val: 0.1
-
 plotting:
-  data_cbar_l: 0
+  data_cbar_l: -1
   data_cbar_u: data
+  detailed_breakdown: false
   ele_window_end: 625
   ele_window_start: 425
   ion_window_end: 528

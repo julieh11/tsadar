@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuring options for forward pass &mdash; TSADAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/github_style.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3c4142" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best_practice.html">Best Practices for Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Configuring the inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defaults.html">Default options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math.html">Implementation of Thomson Scattering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_main.html">API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3c4142" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TSADAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configuring options for forward pass</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/forward_pass.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuring-options-for-forward-pass">
+<h1>Configuring options for forward pass<a class="headerlink" href="#configuring-options-for-forward-pass" title="Link to this heading"></a></h1>
+<p>In addition to the options covered in <a href="#id1"><span class="problematic" id="id2">`Configuring the inputs`_</span></a> and <a href="#id3"><span class="problematic" id="id4">`Default options`_</span></a> there are some options which are
+unique to running the code in <em>forward</em> or <em>series</em> mode. This includes a new field of the input deck <cite>series</cite> and
+additions to standard fields.</p>
+<section id="series">
+<h2>Series<a class="headerlink" href="#series" title="Link to this heading"></a></h2>
+<p>This section of the input deck specifies which variables are to be looped over in order to produce a series of spectra.
+Up to 4 parameters can be specified. For a single spectrum this field can be omitted and for a series of less then 4
+parameters additional <code class="docutils literal notranslate"><span class="pre">param</span></code> fields should be omitted.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">param1</span></code> the parameter field to be looped over. Must be an subfield of the <code class="docutils literal notranslate"><span class="pre">parameters</span></code> field. This parameter will be used to name plots.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vals1</span></code> a list of values to use for <code class="docutils literal notranslate"><span class="pre">param1</span></code>. The elements of the list must be the same type and shape as the corresponding field, i.e if running Te each element should be a float and if running Z it shoudl be a list the length of the number of species.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">param2</span></code> the second parameter to be looped over. Omit to loop over 1 variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vals2</span></code> a list of values to use form <code class="docutils literal notranslate"><span class="pre">param2</span></code>. Must be the same length as <code class="docutils literal notranslate"><span class="pre">vals1</span></code>. Omit to loop over 1 variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">param3</span></code> the third parameter to be looped over. Omit to loop over 2 variables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vals3</span></code> a list of values to use form <code class="docutils literal notranslate"><span class="pre">param3</span></code>. Must be the same length as <code class="docutils literal notranslate"><span class="pre">vals1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">param4</span></code> the fourth parameter to be looped over. Omit to loop over 3 variables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vals4</span></code> a list of values to use form <code class="docutils literal notranslate"><span class="pre">param4</span></code>. Must be the same length as <code class="docutils literal notranslate"><span class="pre">vals1</span></code>.</p></li>
+</ul>
+</section>
+<section id="other">
+<h2>Other<a class="headerlink" href="#other" title="Link to this heading"></a></h2>
+<p>-<code class="docutils literal notranslate"><span class="pre">extraoptions</span></code></p>
+<blockquote>
+<div><p>-<code class="docutils literal notranslate"><span class="pre">spectype</span></code> the type of spectrum to be computed. This field is self determined from the data when fitting. Options are “temporal”, “imaging”, or “angular_full”. In this context “temporal” and “imaging produce the same spectrum.</p>
+<p>-<code class="docutils literal notranslate"><span class="pre">PhysParams</span></code> the subfields define instrumental properties</p>
+<blockquote>
+<div><p>-<code class="docutils literal notranslate"><span class="pre">widIRF</span></code> the subfields define the instrumental response functions</p>
+<blockquote>
+<div><p>-<code class="docutils literal notranslate"><span class="pre">spect_std_ion</span></code> the standard deviation of the gaussian ion instrumental response function in nanometers</p>
+<p>-<code class="docutils literal notranslate"><span class="pre">spect_std_ele</span></code> the standard deviation of the gaussian electron instrumental response function in nanometers</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Avi Milder, Archis Joglekar.
+      <span class="lastupdated">Last updated on Jul 16, 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

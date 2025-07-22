@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/pythonProject/inverse-thomson-scattering/mlruns/305449103974076297/0d2248486ec3497196b35e854bd717b2/artifacts
+end_time: 1724102735430
+entry_point_name: ''
+experiment_id: '305449103974076297'
+lifecycle_stage: active
+run_id: 0d2248486ec3497196b35e854bd717b2
+run_name: spectral log starting at vmin = 0 10167
+run_uuid: 0d2248486ec3497196b35e854bd717b2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1724102726932
+status: 4
+tags: []
+user_id: jher
