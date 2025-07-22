@@ -1,0 +1,127 @@
+data:
+  background:
+    slice: 900
+    type: pixel
+  estimate_lineouts_epw: false
+  estimate_lineouts_iaw: false
+  lineouts:
+    end: 0
+    skip: 50
+    start: -850
+    type: ps
+  shotnum: 114426
+feature_detector:
+  active: true
+  margin_of_error:
+    x_end: 40
+    x_start: 40
+    y_end: 40
+    y_start: 40
+machine: gpu
+mlflow:
+  experiment: test
+  run: run
+other:
+  calc_sigmas: false
+  extraoptions:
+    fit_EPWb: false
+    fit_EPWr: false
+    fit_IAW: true
+    load_ele_spec: false
+    load_ion_spec: true
+    spectype: imaging
+  refit: false
+  refit_thresh: 20.0
+parameters:
+  electron:
+    Te:
+      active: true
+      lb: 0.01
+      ub: 2.0
+      val: 0.15
+    fe:
+      active: false
+      dim: 1
+      nvx: 320
+      params:
+        m:
+          intens: 2.5
+          lb: 2.0
+          matte: true
+          ub: 5.0
+          val: 2.0
+      type: dlm
+    ne:
+      active: false
+      lb: 0.03
+      ub: 2.0
+      val: 0.3
+    type:
+      active: false
+      electron: null
+  general:
+    Te_gradient:
+      active: false
+      lb: 0.0
+      num_grad_points: 1
+      ub: 15.0
+      val: 0.0
+    Va:
+      active: true
+      angle: 0.0
+      lb: -10.0
+      ub: 10.0
+      val: 0.0
+    amp1:
+      active: false
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    amp2:
+      active: false
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    amp3:
+      active: true
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    lam:
+      active: false
+      lb: 526.2
+      ub: 526.58
+      val: 526.4
+    ne_gradient:
+      active: false
+      lb: 0.0
+      num_grad_points: 1
+      ub: 15.0
+      val: 0.0
+    ud:
+      active: true
+      angle: 0.0
+      lb: -20.0
+      ub: 40.0
+      val: 0.0
+  ion-1:
+    A:
+      active: false
+      val: 14.0
+    Ti:
+      active: true
+      lb: 0.01
+      same: false
+      ub: 1.0
+      val: 0.05
+    Z:
+      active: false
+      lb: 1.0
+      ub: 7.0
+      val: 5.0
+    fract:
+      active: false
+      val: 1.0
+    type:
+      active: false
+      ion: null

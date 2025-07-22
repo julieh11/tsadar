@@ -1,0 +1,132 @@
+data:
+  background:
+    slice: 900
+    type: pixel
+  lineouts:
+    end: -150
+    skip: 30
+    start: -330
+    type: pixel
+  shotnum: 101675
+feature_detector:
+  buffer:
+    lineout_end: 0
+    lineout_start: 0
+    spectral_end: 0
+    spectral_start: 0
+  estimate_lineouts_epw: true
+  estimate_lineouts_iaw: false
+machine: gpu
+mlflow:
+  experiment: test
+  run: run
+other:
+  PhysParams:
+    widIRF:
+      ang_FWHM_ele: 1.0
+      spect_FWHM_ele: 0.9
+      spect_stddev_ele: 0.1
+      spect_stddev_ion: 0.015
+  calc_sigmas: false
+  extraoptions:
+    fit_EPWb: true
+    fit_EPWr: true
+    fit_IAW: true
+    load_ele_spec: true
+    load_ion_spec: true
+    spectype: imagimg
+  refit: false
+  refit_thresh: 20.0
+parameters:
+  electron:
+    Te:
+      active: true
+      lb: 0.05
+      ub: 1.0
+      val: 0.29
+    fe:
+      active: true
+      dim: 1
+      nvx: 320
+      params:
+        m:
+          intens: 2.5
+          lb: 2.0
+          matte: true
+          ub: 5.0
+          val: 2.11
+      type: dlm
+    ne:
+      active: true
+      lb: 0.03
+      ub: 2.0
+      val: 0.29
+    type:
+      active: false
+      electron: null
+  general:
+    Te_gradient:
+      active: false
+      lb: 0.0
+      num_grad_points: 1
+      ub: 10.0
+      val: 0.0
+    Va:
+      active: true
+      angle: 0.0
+      lb: -10.0
+      ub: 10.0
+      val: 8.4
+    amp1:
+      active: true
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    amp2:
+      active: true
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    amp3:
+      active: true
+      lb: 0.01
+      ub: 3.75
+      val: 1.0
+    lam:
+      active: false
+      lb: 526.2
+      ub: 526.8
+      val: 526.5
+    ne_gradient:
+      active: false
+      lb: 0.0
+      num_grad_points: 1
+      ub: 15.0
+      val: 0.0
+    ud:
+      active: true
+      angle: 0.0
+      lb: -40.0
+      ub: 40.0
+      val: 23.52
+  ion-1:
+    A:
+      active: false
+      val: 14.0
+    Ti:
+      active: true
+      lb: 0.01
+      same: false
+      ub: 1.0
+      val: 0.275
+    Z:
+      active: true
+      lb: 1.0
+      ub: 5.0
+      val: 2.8
+    fract:
+      active: false
+      val: 1.0
+    type:
+      active: false
+      ion: null

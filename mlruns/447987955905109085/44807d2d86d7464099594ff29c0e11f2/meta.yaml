@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/pythonProject/inverse-thomson-scattering/mlruns/447987955905109085/44807d2d86d7464099594ff29c0e11f2/artifacts
+end_time: 1752092804431
+entry_point_name: ''
+experiment_id: '447987955905109085'
+lifecycle_stage: active
+run_id: 44807d2d86d7464099594ff29c0e11f2
+run_name: run
+run_uuid: 44807d2d86d7464099594ff29c0e11f2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752092804254
+status: 1
+tags: []
+user_id: jher
