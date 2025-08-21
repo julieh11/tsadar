@@ -1,0 +1,16 @@
+{
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: suspicious fits...",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "C:/Users/jher/.vscode/tsadar/run_tsadar.py",
+            "console": "integratedTerminal",
+            "args": "--cfg C:/Users/jher/.vscode/tsadar/configs/1d --mode fit",
+            "cwd": "C:/Users/jher/.vscode/tsadar"
+            
+        }
+    ]
+}
